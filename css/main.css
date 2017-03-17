@@ -60,5 +60,15 @@ body{
 
 .container{
 	width: 980px;
+	margin: 50px auto;
+}
+
+.logo img{
+	width: 350px;
+	display: block;
 	margin: 0 auto;
 }
+
+
+
+
