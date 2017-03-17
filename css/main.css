@@ -69,6 +69,36 @@ body{
 	margin: 0 auto;
 }
 
+.bg-gray{
+	background: #eee;
+	border: 1px solid #ddd;
+	padding: 30px 30px 60px;
+	margin: 30px;
+}
+
+/*
+ *  Rooms
+ */
+.rooms label{
+	font-size: 24px;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+.rooms select {
+    padding: 12px 15px;
+    font-size: 18px;
+    width: 250px;
+}
+
+.rooms button{
+	padding: 12px 15px;
+	font-size: 18px;
+	background: #3359DF;
+	color: white;
+	border: 1px solid #1F42C1;
+}
 
 
 
