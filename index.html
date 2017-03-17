@@ -3,28 +3,50 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Andela Room Bookings</title>
+
 	<link rel="stylesheet" href="./css/main.css">
 	<script src="js/bookingApp.js"></script>
 	<script src="js/roomType.js"></script>
+
 	<script>
 		function getAvailableRoom() {
+
+			// get all rooms from bookingApp.js
 			var all_rooms = getAllRooms();
+
+			// get room name from the dropdown
 			var room_name = document.getElementById("find-rooms").value;
+
+			// get available rooms
 			var available_rooms = JSON.parse(roomType(room_name, all_rooms));
+
+			// build table header
 			var output = "<tr><th width='10%'>Room No</th><th width='20%'>Room Name</th><th width='15%'>Capacity</th><th width='45%'>Features</th><th width='10%'>Available</th></tr>";
 
+			// get total count
 			var count = 0;
 
+			// get each room
 			for(var room in available_rooms){
 
-				output += "<tr><td>" + available_rooms[room].id + "</td><td>" + available_rooms[room].room_number + "</td><td>" + available_rooms[room].capacity + "</td><td>" + available_rooms[room].features + "</td><td class='center'><span class='available'> YES </span></td></tr>";
+				// Build the output
+				output += "<tr>";
+				output += "<td>" + available_rooms[room].id + "</td>"
+				output += "<td>" + available_rooms[room].room_number + "</td>";
+				output += "<td>" + available_rooms[room].capacity + "</td>";
+				output += "<td>" + available_rooms[room].features + "</td>";
+				output += "<td class='center'><span class='available'> YES </span></td></tr>";
+				output += "</tr>";
 
 				count++;
 			}
 
-			document.getElementById("result").className = "result show";
+			// Output result
 			document.getElementById("rooms-found").innerHTML = count;
 			document.getElementById("table-result").innerHTML = output;
+
+			// add show class to result id.
+			document.getElementById("result").className = "result show";
 		};
 		
 	</script>
