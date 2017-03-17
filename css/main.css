@@ -52,9 +52,15 @@ table {
 	float: none;
 }
 
-body{
+/*
+ *  BLUE - #1B3AAB
+ */
+
+body{    
 	font-family: Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #333;
 }
 
 
@@ -71,8 +77,8 @@ body{
 
 .bg-gray{
 	background: #eee;
-	border: 1px solid #ddd;
-	padding: 30px 30px 60px;
+	border: 2px solid #ddd;
+	padding: 30px 30px 40px;
 	margin: 30px;
 }
 
@@ -89,7 +95,7 @@ body{
 .rooms select {
     padding: 12px 15px;
     font-size: 18px;
-    width: 250px;
+    width: 60%;
 }
 
 .rooms button{
@@ -101,4 +107,66 @@ body{
 }
 
 
+/*
+ *  Result
+ *  
+ */
 
+.rooms-result{
+	padding: 30px 30px 0;
+}
+
+.rooms-result h3{
+	font-size: 28px;
+}
+
+.rooms-result p{
+	margin-top: 10px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+table, table tr, table th, table td{
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+
+table {
+	margin-top: 5px;
+	width: 100%;
+	padding: 30px 30px 40px;
+	margin: 30px;
+	font-size: 13px;
+}
+
+.search-result th{
+	padding: 15px;
+	color: white;
+	background: #1B3AAB;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.search-result tr:nth-child(odd){
+	background: #ddd;
+}
+.search-result tr:nth-child(even){
+	background: #eee;
+}
+
+.search-result tr td{
+	padding: 15px 15px 30px;
+}
+
+.search-result .available, .search-result .not-available{
+	display: inline-block;
+	padding: 5px 10px;
+	color: white;
+	font-size: 12px;
+	background: #007A00;
+}
+
+.search-result .not-available{
+	background: #990000;
+}
