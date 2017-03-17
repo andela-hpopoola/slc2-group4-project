@@ -1,16 +1,19 @@
 'use strict';
 
-var jsonObj = require ('./bookingApp.js').database;
-
-function roomType(roomtype){
+function roomType(roomtype, jsonObj){
   var obj = {};
 
-  var j = 1;
+  var count = 1;
+
+  // looping through the category
   for (var i=0; i<jsonObj[roomtype].length; i++){
+
+  	// if room is available
     if(jsonObj[roomtype][i].available){
-      obj[j] = jsonObj.meetings[i];
-      j++;
+      obj[count] = jsonObj[roomtype][i];
+      count++;
     }
+
   }
   
   return JSON.stringify(obj);

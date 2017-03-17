@@ -1,0 +1,6 @@
+
+{"1":
+	{"id":1,"room_number":"A001","capacity":12,"available":true,"features":"Projectors, Personalized workspaces, Wifi, lounge"},
+	"2":{"id":2,"room_number":"A002","capacity":20,"available":true,"features":"Safety Exit, Conference Table, Video call facitilies, Team cubicles"},
+	"3":{"id":3,"room_number":"A003","capacity":25,"available":true,"features":"Safety Exit, Conference Table, Video call facitilies, Team cubicles"},
+	"4":{"id":4,"room_number":"A004","capacity":9,"available":true,"features":"Projectors, Unit computers, Whiteboards, Team cubicles"}}

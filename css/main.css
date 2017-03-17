@@ -140,6 +140,14 @@ table {
 	font-size: 13px;
 }
 
+.result{
+	display:none;
+}
+
+.result.show{
+	display: block;
+}
+
 .search-result th{
 	padding: 15px;
 	color: white;

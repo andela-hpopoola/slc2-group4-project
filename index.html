@@ -4,6 +4,30 @@
 	<meta charset="UTF-8">
 	<title>Andela Room Bookings</title>
 	<link rel="stylesheet" href="./css/main.css">
+	<script src="js/bookingApp.js"></script>
+	<script src="js/roomType.js"></script>
+	<script>
+		function getAvailableRoom() {
+			var all_rooms = getAllRooms();
+			var room_name = document.getElementById("find-rooms").value;
+			var available_rooms = JSON.parse(roomType(room_name, all_rooms));
+			var output = "<tr><th width='10%'>Room No</th><th width='20%'>Room Name</th><th width='15%'>Capacity</th><th width='45%'>Features</th><th width='10%'>Available</th></tr>";
+
+			var count = 0;
+
+			for(var room in available_rooms){
+
+				output += "<tr><td>" + available_rooms[room].id + "</td><td>" + available_rooms[room].room_number + "</td><td>" + available_rooms[room].capacity + "</td><td>" + available_rooms[room].features + "</td><td class='center'><span class='available'> YES </span></td></tr>";
+
+				count++;
+			}
+
+			document.getElementById("result").className = "result show";
+			document.getElementById("rooms-found").innerHTML = count;
+			document.getElementById("table-result").innerHTML = output;
+		};
+		
+	</script>
 </head>
 <body>
 	<!-- Main Container -->
@@ -16,18 +40,23 @@
 		<!-- /.Andela Logo -->
 
 		<!-- Search Room -->
-		<div class="search-room bg-gray">
+		<div class="search-room bg-gray show">
 			<!-- Rooms -->
+
 			<div id="rooms" class="rooms">
-				<label for="find-rooms">Select Room</label>
-				<select name="find-rooms" id="">
-					<option value="1"> Meeting</option>
-					<option value="2"> Games</option>
-					<option value="3"> Quiet Time</option>
-					<option value="4"> Learning</option>
-					<option value="5"> Working</option>
-				</select>
-				<button name="search" type="submit">Search</button>
+				<form id="my-form" action="#">
+						
+					<label for="find-rooms">Select Room</label>
+					<select name="find-rooms" id="find-rooms">
+						<option value="meetings"> Meeting</option>
+						<option value="games"> Games</option>
+						<option value="quiet_time"> Quiet Time</option>
+						<option value="learning"> Learning</option>
+						<option value="working"> Working</option>
+					</select>
+
+					<button id="search" name="search" type="button" onclick="getAvailableRoom()">Search</button>
+				</form>
 			</div>
 			<!-- /.Rooms -->
 		</div>
@@ -35,50 +64,14 @@
 	
 
 		<!-- Result -->
-		<div id="result">
+		<div id="result" class="result">
 			<div class="rooms-result">
 				<h3>Results</h3>
-				<p>No of Rooms Found : <span class="rooms-found"> 1 </span></p>
+				<p>No of Rooms Found : <span id="rooms-found"></span></p>
 			</div>
 			<div>
 				
-				<table class="search-result">
-					<tr>
-						<th width="10%">Room No</th>
-						<th width="20%">Room Name</th>
-						<th width="15%">Capacity</th>
-						<th width="45%">Features</th>
-						<th width="10%">Available</th>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>Haruna</td>
-						<td>20</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat voluptatibus cumque necessitatibus aperiam quas laudantium?</td>
-						<td class="center"><span class="available">YES</span></td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Itunu</td>
-						<td>10</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
-						<td><span class="not-available">NO</span></td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>Oladimeji</td>
-						<td>200</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat voluptatibus cumque necessitatibus aperiam quas laudantium?</td>
-						<td><span class="available">YES</span></td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>Neto Meeting Room</td>
-						<td>20</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla distinctio, corrupti quibusdam quaerat libero omnis error quae ea vel sequi consequuntur nam, at, aspernatur ducimus et. A voluptates voluptatum animi dignissimos ex ratione expedita voluptas eos saepe quisquam, similique, iusto sit, vitae quos. Atque, porro maxime numquam harum, nam veniam sunt? Molestias veniam molestiae doloribus neque sequi, adipisci commodi totam.</td>
-						<td><span class="available">YES</span></td>
-					</tr>
-				</table>
+				<table id="table-result" class="search-result"></table>
 			</div>
 		</div>
 		<!-- /.Result -->
